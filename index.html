@@ -1,0 +1,152 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="Width-device-width, initial-scale=1.0">
+        <title>Character Sheet</title>
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <script src="js/index.js"></script>
+    <script src="Character/Broll.js"></script>
+    <body onload="AbilityMath();">
+        <!--Menu Bar-->
+        <button onclick="CharacterBroll(); AbilityMath()">Broll</button>
+
+        <!--Character Info-->
+        <div class="Info">
+            <span>Name: <label contenteditable="true" id="Name"></label></span>
+            <span>Class: <label contenteditable="true" id="Class"></label></span>
+            <span>Race: <label contenteditable="true" id="Race"></label></span>
+            <span>Background: <label contenteditable="true" id="Background"></label></span>
+        </div>
+
+        <div class="AbilityBar">
+            <!--Strength Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierStr">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreStr" name="ScoreStr" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Strength</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Dexterity Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierDex">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreDex" name="ScoreDex" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Dexterity</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Constitution Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierCon">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreCon" name="ScoreCon" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Constitution</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Intelligence Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierInt">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreInt" name="ScoreInt" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Intelligence</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Wisdom Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierWis">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreWis" name="ScoreWis" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Wisdom</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!--Charisma Score-->
+            <table class="Ability">
+                <tbody>
+                    <tr>
+                        <td class="AbilityModifier" id="ModifierCha">0</td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityScore">
+                            <input type="number" id="ScoreCha" name="ScoreCha" value="10" step="1" onchange="AbilityMath()">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="AbilityName">Charisma</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="SkillList">
+            <span class="SkillAbility">Strength</span>
+                <span class="SkillScore">Athletics: <label id="Athletics">+2</label></span>
+            <span class="SkillAbility">Dexterity</span>
+                <span class="SkillScore">Acrobatics: <label id="Acrobatics">+2</label></span>
+                <span class="SkillScore">Sleight of Hand: <label id="SleightOfHands">+2</label></span>
+                <span class="SkillScore">Stealth: <label id="Stealth">+2</label></span>
+            <span class="SkillAbility">Intelligence</span>
+                <span class="SkillScore">Arcana: <label id="Arcana">+2</label></span>
+                <span class="SkillScore">History: <label id="History">+2</label></span>
+                <span class="SkillScore">Investigation: <label id="Investigation">+2</label></span>
+                <span class="SkillScore">Nature: <label id="Nature">+2</label></span>
+                <span class="SkillScore">Religion: <label id="Religion">+2</label></span>
+            <span class="SkillAbility">Wisdom</span>
+                <span class="SkillScore">Animal Handling: <label id="AnimalHandling">+2</label></span>
+                <span class="SkillScore">Insight: <label id="Insight">+2</label></span>
+                <span class="SkillScore">Medicine: <label id="Medicine">+2</label></span>
+                <span class="SkillScore">Perception: <label id="Perception">+2</label></span>
+                <span class="SkillScore">Survival: <label id="Survival">+2</label></span>
+            <span class="SkillAbility">Charisma</span>
+                <span class="SkillScore">Deception: <label id="Deception">+2</label></span>
+                <span class="SkillScore">Intimidation: <label id="Intimidation">+2</label></span>
+                <span class="SkillScore">Performance: <label id="Performance">+2</label></span>
+                <span class="SkillScore">Persuasion: <label id="Persuasion">+2</label></span>
+        </div>
+    </body>
+</html>
