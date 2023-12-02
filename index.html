@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style/main.css">
+        <script src="script/main.js"></script>
+    </head>
+    <body onload="open()">
+        <!--character personal information-->
+        <div class="character-info">
+            <div class="character-info1">
+                <!--character name-->
+                <div class="character-name">
+                    <p>Name</p>
+                    <input type="text" class="info-input" id="character-name">
+                </div>
+                <!--character classes-->
+                <div class="character-class">
+                    <button onclick="bonusCheck('character-class-list')">Class</button>
+                    <div class="character-class-list" id="character-class-list">
+                        <div><input type="number" name="character-class" id="character-barbarian" value=0 min="0" max="20" oninput="mainJS()"> Barbarian</div>
+                        <div><input type="number" name="character-class" id="character-bard" value=0 min="0" max="20" oninput="mainJS()"> Bard</div>
+                        <div><input type="number" name="character-class" id="character-cleric" value=0 min="0" max="20" oninput="mainJS()"> Cleric</div>
+                    </div>
+                </div>
+            </div>
+            <!--character level-->
+            <div class="character-level">
+                <p class="character-level-title">Level</p>
+                <p class="character-level-number" id="character-level">0</p>
+            </div>
+            <div class="character-info2">
+                <!--character race-->
+                <div class="character-race">
+                    <p>Race</p>
+                    <button class="character-race-list" id="character-race-list" style="width: 90%;"></button>
+                    <div class="info2-option-display">
+                        <button style="width: 100%;">Human</button>
+                        <button style="width: 100%;">Elf</button>
+                        <button style="width: 100%;">Dwarf</button>
+                        <button style="width: 100%;">Orc</button>
+                        <button style="width: 100%;">Gnome</button>
+                    </div>
+                </div>
+                <!--character backgorund-->
+                <div class="character-background">
+                    <p>Background</p>
+                    <button class="character-race-list" id="character-race-list" style="width: 90%;"></button>
+                    <div class="info2-option-display">
+                        <button style="width: 100%;">Human</button>
+                        <button style="width: 100%;">Elf</button>
+                        <button style="width: 100%;">Dwarf</button>
+                        <button style="width: 100%;">Orc</button>
+                        <button style="width: 100%;">Gnome</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--character ability score-->
+        <div class="character-ability">
+            <!--character Strength score-->
+            <div class="character-ability-score">
+                <label>Strength</label>
+                <input type="number" class="character-ability-number" id="character-strength" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-strength-modifier" id="character-strength-modifier"></label>
+            </div>
+            <!--character Dexterity score-->
+            <div class="character-ability-score">
+                <label>Dexterity</label>
+                <input type="number" class="character-ability-number" id="character-dexterity" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-dexterity-modifier" id="character-dexterity-modifier"></label>
+            </div>
+            <!--character Constitution score-->
+            <div class="character-ability-score">
+                <label>Constitution</label>
+                <input type="number" class="character-ability-number" id="character-constitution" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-constitution-modifier" id="character-constitution-modifier"></label>
+            </div>
+            <!--character Intelligence score-->
+            <div class="character-ability-score">
+                <label>Intelligence</label>
+                <input type="number" class="character-ability-number" id="character-intelligence" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-intelligence-modifier" id="character-intelligence-modifier"></label>
+            </div>
+            <!--character Wisdom score-->
+            <div class="character-ability-score">
+                <label>Wisdom</label>
+                <input type="number" class="character-ability-number" id="character-wisdom" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-wisdom-modifier" id="character-wisdom-modifier"></label>
+            </div>
+            <!--character Charisma score-->
+            <div class="character-ability-score">
+                <label>Charisma</label>
+                <input type="number" class="character-ability-number" id="character-charisma" oninput="mainJS()" value="10" min="1" max="30">
+                    <!--tenho de fazer output do mod-->
+                <label class="character-charisma-modifier" id="character-charisma-modifier"></label>
+            </div>
+        </div>
+        <div class="character-sheet">
+            <!--os stats do character-->
+            <div class="character-bonus">
+                <!--character proficiency bonus-->
+                <div class="character-proficiency">
+                    <label class="character-bonus-title">Proficiency Bonus</label>
+                    <p class="character-bonus-value" id="character-proficiency"></p>
+                </div>
+                <!--character saving throws-->
+                <div class="character-save">
+                    <label class="character-bonus-title">Saving Throw</label>
+                    <div class="character-save-list">
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-strength-bonus"></p>
+                            <button class="character-bonus-name" id="strength-save" onclick="bonusCheck('strength-save-list')">Strength</button>
+                        </div>
+                        <div class="proficiency-list" id="strength-save-list">
+                            <div>
+                                <input type="radio" name="character-save-strength" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-strength" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-dexterity-bonus"></p>
+                            <button class="character-bonus-name" id="dexterity-save" onclick="bonusCheck('dexterity-save-list')">Dexterity</button>
+                        </div>
+                        <div class="proficiency-list" id="dexterity-save-list">
+                            <div>
+                                <input type="radio" name="character-save-dexterity" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-dexterity" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-constitution-bonus"></p>
+                            <button class="character-bonus-name" id="constitution-save" onclick="bonusCheck('constitution-save-list')">Constitution</button>
+                        </div>
+                        <div class="proficiency-list" id="constitution-save-list">
+                            <div>
+                                <input type="radio" name="character-save-constitution" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-constitution" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-intelligence-bonus"></p>
+                            <button class="character-bonus-name" id="intelligence-save" onclick="bonusCheck('intelligence-save-list')">Intelligence</button>
+                        </div>
+                        <div class="proficiency-list" id="intelligence-save-list">
+                            <div>
+                                <input type="radio" name="character-save-intelligence" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-intelligence" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-wisdom-bonus"></p>
+                            <button class="character-bonus-name" id="wisdom-save" onclick="bonusCheck('wisdom-save-list')">Wsidom</button>
+                        </div>
+                        <div class="proficiency-list" id="wisdom-save-list">
+                            <div>
+                                <input type="radio" name="character-save-wisdom" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-wisdom" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-save-charisma-bonus"></p>
+                            <button class="character-bonus-name" id="charisma-save" onclick="bonusCheck('charisma-save-list')">Charisma</button>
+                        </div>
+                        <div class="proficiency-list" id="charisma-save-list">
+                            <div>
+                                <input type="radio" name="character-save-charisma" value="0" oninput="mainJS()" checked>
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-save-charisma" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--character skill bonus-->
+                <div class="character-skill">
+                    <label class="character-bonus-title">Strength</label>
+                    <!--character strength skills-->
+                    <div class="character-skill-list">
+                        <div class="character-bonus-line">
+                            <p class="character-bonus-value" id="character-athletics"></p>
+                            <button class="character-bonus-name" id="athletics" onclick="bonusCheck('athletics-list')">Athletics</button>
+                        </div>
+                        <div class="proficiency-list" id="athletics-list">
+                            <div>
+                                <input type="radio" name="character-athletics" value="0" checked oninput="mainJS()">
+                                <label>No Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-athletics" value="1" oninput="mainJS()">
+                                <label>Proficiency</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="character-athletics" value="2" oninput="mainJS()">
+                                <label>Expertise</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="character-stats">
+                <div class="character-stats-extra">
+                    <div class="character-stats-ac">
+                        <label>Armor Class</label>
+                        <div>10</div>
+                    </div>
+                    <div class="character-stats-iniciative">
+                        <label>Iniciative</label>
+                        <div>10</div>
+                    </div>
+                    <div class="character-stats-speed">
+                        <label>Speed</label>
+                        <div>10</div>
+                    </div>
+                </div>
+                <div class="character-stats-hp">
+                    <div class="character-stats-hp-max">
+                        <label>Max Hit Points</label>
+                        <div>50</div>
+                    </div>
+                    <div class="character-stats-hp-dices">
+                        <label>Hit Dices</label>
+                        <div>4d4</div>
+                    </div>
+                </div>
+                <div class="character-stats-actions">
+                    <label>Action List</label>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th>Action</th>
+                                <th>Atk Bonus</th>
+                                <th>Damage</th>
+                            </tr>
+                            <tr>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="character-stats-equipment">
+                    <label class="character-stats-equipment-title">Equipment</label>
+                    <div class="character-stats-equipment-item">
+
+                    </div>
+                </div>
+            </div>
+            <div class="character-feature">
+                <label class="character-feature-title">Features</label>
+                <div class="character-feature-list">
+                    <div name="feature-barbarian">
+                        <div class="character-feature-item" id="barbarian1">
+                            <p onclick="bonusCheck('rage-desc')">Rage</p>
+                            <div class="character-feature-item-desc" id="rage-desc">
+                                <p>In battle, you fight with primal ferocity. On your turn, you can enter a rage as a bonus action.</p>
+                                <p>While raging, you gain the following benefits if you aren't wearing heavy armor:</p>
+                                <li>You have advantage on Strength checks and Strength saving throws.</li>
+                                <li>When you make a melee weapon attack using Strength, you gain a +2 bonus to the damage roll. This bonus increases as you level.</li>
+                                <li>You have resistance to bludgeoning, piercing, and slashing damage.</li>
+                                <p>If you are able to cast spells, you can't cast them or concentrate on them while raging.</p>
+                                <p>Your rage lasts for 1 minute. It ends early if you are knocked unconscious or if your turn ends and you haven't attacked a hostile creature since your last turn or taken damage since then. You can also end your rage on your turn as a bonus action.</p>
+                                <p>Once you have raged the maximum number of times for your barbarian level, you must finish a long rest before you can rage again. You may rage 2 times at 1st level, 3 at 3rd, 4 at 6th, 5 at 12th, and 6 at 17th.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+        </div>        
+    </body>
+</html>
